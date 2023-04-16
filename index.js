@@ -111,31 +111,7 @@ function scramble() {
     setRubiks(temp);
 }
 
-function colFromNum(num) {
-    switch (num) {
-        case 1: {
-            return "#ff0000";
-        }
-        case 2: {
-            return "#ff8800";
-        }
-        case 3: {
-            return "#ffff00";
-        }
-        case 4: {
-            return "#00ff00";
-        }
-        case 5: {
-            return "#0000ff";
-        }
-        case 6: {
-            return "#ff00ff";
-        }
-        default: {
-            break;
-        }
-    }
-}
+colList = ["#ff0000", "#ff8800", "#ffff00", "#00ff00", "#0000ff", "#ff00ff"];
 
 function makeMove(move) {
     switch (move) {
@@ -184,7 +160,7 @@ function main() {
             ctx.fillRect(rubiks[i].renderPos.x + (unit / 4), rubiks[i].renderPos.y + (unit / 4), (unit / 2), (unit / 2));
             ctx.fillStyle = "#000000";
             ctx.font = "20px Comic Sans MS";
-            ctx.fillText((i + 1), rubiks[i].renderPos.x + (unit / 2) - 6, rubiks[i].renderPos.y + (unit / 2) + 7);
+            ctx.fillText(1 + colList.findIndex(x => x == rubiks[i].col), rubiks[i].renderPos.x + (unit / 2) - 6, rubiks[i].renderPos.y + (unit / 2) + 7);
         }
     }
 
